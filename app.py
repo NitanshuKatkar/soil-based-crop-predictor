@@ -12,16 +12,21 @@ with open('mymodel.pkl', 'rb') as file:
 def hello_world():
     if request.method == "POST":
         input_data = request.form.to_dict()
-        input_data = dict([a, int(x)] for a, x in input_data.items())
+        try:
+            input_data = dict([a, int(x)] for a, x in input_data.items())
+        except:
+            return "Please enter numeric data ONLY!!!"
         result = get_prediction(input_data)
-        return "Your answer is {}".format(result)
+        return result
     return render_template('index.html')
 
 
 def get_prediction(input_data):
     data = np.array([list(input_data.values())])
-    return model.predict(data)
-
+    if np.all(data > 0):
+        return "Predicted Crop is {}".format(model.predict(data)[0].upper())
+    else:
+        return "Please enter positive values!!!"
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Soil based Crop Predictor</title>
+  <h2>Soil based Crop Predictor<br>
+     Enter the Details:</h2>
+</head>
+<body>
+    <form action="{{ url_for("hello_world")}}" method="post">
+       <table>
+
+         <tr>
+             <td>Percentage Nitrogen Present:</td>
+             <td><input type="text" name="per_N"></td>
+         </tr>
+         <tr>
+             <td>Percentage Phosphorous Present:</td>
+             <td><input type="text" name="per_P"></td>
+         </tr>
+         <tr>
+             <td>Percentage Potassium Present:</td>
+             <td><input type="text" name="per_K"></td>
+         </tr>
+         <tr>
+             <td>Temperature</td>
+             <td><input type="text" name="temp"></td>
+         </tr>
+         <tr>
+             <td>Humidity</td>
+             <td><input type="text" name="humidity"></td>
+         </tr>
+         <tr>
+             <td>Ph of Soil</td>
+             <td><input type="text" name="ph"></td>
+         </tr>
+         <tr>
+             <td>Rainfall</td>
+             <td><input type="text" name="rainfall"></td>
+         </tr>
+
+      </table><br>
+         <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
+

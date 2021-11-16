@@ -24,7 +24,7 @@ def hello_world():
 def get_prediction(input_data):
     data = np.array([list(input_data.values())])
     if np.all(data > 0):
-        return "Predicted Crop is {}".format(model.predict(data)[0].upper())
+        return "Predicted Crop is: {}".format(model.predict(data)[0].upper())
     else:
         return "Please enter positive values!!!"
 
